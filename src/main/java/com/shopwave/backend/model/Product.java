@@ -1,7 +1,9 @@
+
 package com.shopwave.backend.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Data
 @Entity
@@ -17,4 +19,9 @@ public class Product {
     private Double price;
     private Integer stock;
     private String imageUrl;
+
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    @JsonIgnoreProperties("products")
+    private Category category;
 }
