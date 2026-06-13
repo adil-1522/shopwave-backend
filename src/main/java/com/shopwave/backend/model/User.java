@@ -40,6 +40,10 @@ public class User {
     @JsonIgnoreProperties("user")
     private List<Order> orders;
 
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("user")
+    private Cart cart;
+
     public enum Role {
         CUSTOMER, ADMIN
     }
